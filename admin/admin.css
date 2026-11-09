@@ -1,0 +1,503 @@
+
+/* =====================================
+   1. GLOBAL DESIGN
+===================================== */
+
+:root {
+    --navy: #17243a;
+    --navy-light: #243650;
+    --gold: #b99a62;
+    --gold-light: #e8d9b9;
+    --ivory: #f8f7f3;
+    --white: #ffffff;
+    --text: #263246;
+    --muted: #788294;
+    --border: #e8e7e2;
+    --success: #34775a;
+    --danger: #a94343;
+    --shadow: 0 12px 35px rgba(23, 36, 58, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--ivory);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* =====================================
+   2. MAIN CONTAINER
+===================================== */
+
+.container {
+    width: min(1150px, 92%);
+    margin: 50px auto;
+}
+
+/* =====================================
+   3. LOGIN PAGE
+===================================== */
+
+.login-card {
+    width: min(430px, 100%);
+    margin: 100px auto;
+    padding: 42px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.login-card h1 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 29px;
+    letter-spacing: -0.7px;
+}
+
+.login-card > p {
+    margin-bottom: 28px;
+    color: var(--muted);
+}
+
+label {
+    display: block;
+    margin: 15px 0 7px;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: #fdfdfc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(185, 154, 98, 0.13);
+}
+
+input[type="checkbox"] {
+    width: auto;
+    accent-color: var(--navy);
+}
+
+/* =====================================
+   4. BUTTONS
+===================================== */
+
+button {
+    padding: 12px 20px;
+    background: var(--navy);
+    color: var(--white);
+    border: 1px solid var(--navy);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+button:hover {
+    background: var(--navy-light);
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#loginButton {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.logout {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--border);
+}
+
+.logout:hover {
+    background: var(--navy);
+    color: white;
+}
+
+/* =====================================
+   5. DASHBOARD HEADER
+===================================== */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 35px;
+    background: var(--navy);
+    color: white;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.dashboard-header p {
+    margin: 5px 0 0;
+    color: #cbd3df;
+}
+
+.dashboard-header .logout {
+    color: white;
+    border-color: #78879a;
+}
+
+.dashboard-header .logout:hover {
+    background: white;
+    color: var(--navy);
+}
+
+/* =====================================
+   6. WELCOME CARD
+===================================== */
+
+.welcome-card {
+    margin: 25px 0;
+    padding: 28px 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+}
+
+.welcome-card h2 {
+    margin: 0 0 6px;
+    color: var(--navy);
+}
+
+.welcome-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* =====================================
+   7. MANAGEMENT MODULE CARDS
+===================================== */
+
+.management-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.management-card {
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: 0.25s ease;
+}
+
+.management-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.management-card h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+}
+
+.management-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.management-card span {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+/* =====================================
+   8. CERTIFICATION MANAGER
+===================================== */
+
+.manager-section {
+    margin-top: 35px;
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+.manager-section > h2 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 25px;
+}
+
+.manager-section > p {
+    margin-top: 5px;
+    color: var(--muted);
+}
+
+.manager-section h3 {
+    color: var(--navy);
+}
+
+#formHeading {
+    margin-top: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* =====================================
+   9. CERTIFICATION FORM
+===================================== */
+
+.cert-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.cert-form > div {
+    min-width: 0;
+}
+
+.cert-form label {
+    margin-top: 5px;
+}
+
+.cert-form input,
+.cert-form textarea {
+    display: block;
+    width: 100%;
+}
+
+.cert-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.cert-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.cert-form .full-width label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.manager-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#saveCertButton {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+#cancelEditButton {
+    background: #f2f0eb;
+    color: var(--navy);
+    border-color: var(--border);
+}
+
+#cancelEditButton:hover {
+    background: var(--gold-light);
+}
+
+/* =====================================
+   10. CERTIFICATION LIST
+===================================== */
+
+#certificationList {
+    margin-top: 20px;
+}
+
+.cert-item {
+    margin: 16px 0;
+    padding: 23px;
+    background: #fdfdfb;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: 0.25s ease;
+}
+
+.cert-item:hover {
+    border-color: var(--gold-light);
+    box-shadow: var(--shadow);
+}
+
+.cert-item h3 {
+    margin: 0 0 12px;
+    font-size: 19px;
+}
+
+.cert-item p {
+    margin: 7px 0;
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.cert-item a {
+    display: inline-block;
+    margin: 8px 12px 8px 0;
+    color: #8b6d38;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cert-item a:hover {
+    text-decoration: underline;
+}
+
+.cert-status {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 5px 12px;
+    background: #f0eee9;
+    color: var(--navy);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =====================================
+   11. CERTIFICATION ACTION BUTTONS
+===================================== */
+
+.cert-item .manager-actions {
+    margin-top: 15px;
+}
+
+.cert-item .manager-actions button {
+    padding: 9px 15px;
+    font-size: 13px;
+}
+
+.cert-item .manager-actions button:first-child {
+    background: var(--navy);
+}
+
+.cert-item .manager-actions button:nth-child(2) {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+.cert-item .manager-actions button:last-child {
+    background: var(--danger);
+    border-color: var(--danger);
+}
+
+/* =====================================
+   12. STATUS MESSAGES
+===================================== */
+
+#loginMessage,
+.cert-message {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.cert-message {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* =====================================
+   13. DIVIDERS
+===================================== */
+
+hr {
+    margin: 32px 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+/* =====================================
+   14. RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 800px) {
+    .management-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .login-card {
+        margin: 50px auto;
+        padding: 25px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manager-section {
+        padding: 20px;
+    }
+
+    .cert-form {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-form .full-width {
+        grid-column: auto;
+    }
+}

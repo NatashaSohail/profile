@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin</title>
+    <link rel="stylesheet" href="admin.css">
+
+    <style>
+        .manager-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            color: #222;
+        }
+
+        .manager-section h2 {
+            margin-top: 0;
+        }
+
+        .cert-form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .cert-form .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .cert-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .cert-form input,
+        .cert-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        .cert-form textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .manager-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .manager-actions button,
+        .cert-item button {
+            padding: 10px 16px;
+            border: 0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cert-item {
+            border: 1px solid #e5e5e5;
+            border-radius: 9px;
+            padding: 18px;
+            margin-top: 15px;
+        }
+
+        .cert-item h3 {
+            margin: 0 0 8px;
+        }
+
+        .cert-item p {
+            overflow-wrap: anywhere;
+        }
+
+        .cert-status {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 20px;
+            background: #eee;
+            font-size: 12px;
+        }
+
+        .cert-message {
+            margin-top: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 650px) {
+            .cert-form {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-form .full-width {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<main class="container">
+
+    <!-- Login Section -->
+    <section id="loginSection" class="login-card">
+        <h1>Welcome Back</h1>
+        <p>Sign in to manage your portfolio.</p>
+
+        <form id="loginForm">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Your password" required>
+
+            <button type="submit" id="loginButton">Sign In</button>
+            <p id="loginMessage" role="status"></p>
+        </form>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboardSection" hidden>
+
+        <header class="dashboard-header">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p id="welcomeMessage"></p>
+            </div>
+
+            <button id="logoutButton" class="logout">Log Out</button>
+        </header>
+
+        <div class="welcome-card">
+            <h2>Portfolio Management</h2>
+            <p>Manage your professional profile and achievements.</p>
+        </div>
+
+        <!-- Other modules -->
+        <div class="management-grid">
+            <div class="management-card">
+                <h3>Certifications</h3>
+                <p>Add, edit and publish certifications.</p>
+                <span>Active module</span>
+            </div>
+
+            <div class="management-card">
+                <h3>Learning & Skills</h3>
+                <p>Manage your learning achievements.</p>
+                <span>Coming soon</span>
+            </div>
+
+            <div class="management-card">
+                <h3>Projects</h3>
+                <p>Manage your portfolio projects.</p>
+                <span>Coming soon</span>
+            </div>
+        </div>
+
+        <!-- Certification Manager -->
+        <section class="manager-section">
+
+            <h2>Certification Manager</h2>
+            <p>Add and manage your professional certifications.</p>
+
+            <h3 id="formHeading">Add New Certification</h3>
+
+            <form id="certificationForm" class="cert-form">
+
+                <div>
+                    <label for="title">Certification Title *</label>
+                    <input type="text" id="title" required>
+                </div>
+
+                <div>
+                    <label for="issuer">Issuing Organization *</label>
+                    <input type="text" id="issuer" required>
+                </div>
+
+                <div>
+                    <label for="issue_date">Issue Date</label>
+                    <input type="date" id="issue_date">
+                </div>
+
+                <div>
+                    <label for="expiry_date">Expiry Date</label>
+                    <input type="date" id="expiry_date">
+                </div>
+
+                <div>
+                    <label for="credential_id">Credential ID</label>
+                    <input type="text" id="credential_id">
+                </div>
+
+                <div>
+                    <label for="credential_url">Credential Verification URL</label>
+                    <input type="url" id="credential_url"
+                           placeholder="https://example.com">
+                </div>
+
+                <div class="full-width">
+                    <label for="certificate_file_url">Certificate File URL</label>
+                    <input type="url" id="certificate_file_url"
+                           placeholder="https://example.com/certificate.pdf">
+                </div>
+
+                <div class="full-width">
+                    <label for="description">Description / What I Learned</label>
+                    <textarea id="description"></textarea>
+                </div>
+
+                <div class="full-width">
+                    <label>
+                        <input type="checkbox" id="is_published">
+                        Publish this certification on my portfolio
+                    </label>
+                </div>
+
+                <div class="full-width manager-actions">
+                    <button type="submit" id="saveCertButton">
+                        Save Certification
+                    </button>
+
+                    <button type="button" id="cancelEditButton" hidden>
+                        Cancel Edit
+                    </button>
+                </div>
+
+            </form>
+
+            <p id="certMessage" class="cert-message" role="status"></p>
+
+            <hr>
+
+            <h3>My Certifications</h3>
+
+            <div id="certificationList">
+                Loading certifications...
+            </div>
+
+        </section>
+    </section>
+</main>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

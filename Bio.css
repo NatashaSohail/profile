@@ -357,7 +357,154 @@ section{
     text-align: right;
 }
 
+.content-card a {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+}
+/* 
+.section-description {
+    color: var(--muted);
+    margin-top: -18px;
+    margin-bottom: 28px;
+}
+ */
 
+/* =====================================
+   CERTIFICATIONS SECTION
+===================================== */
+
+#certifications {
+    padding: 90px 8%;
+}
+
+/* Small heading */
+#certifications .eyebrow {
+    color: #a18465;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+/* Main heading */
+#certifications h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+/* Description */
+#certifications .section-description {
+    color: #777;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Certificate grid */
+#certifications .content-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+    gap: 25px;
+}
+
+/* Individual certificate card */
+#certifications .content-card {
+    background: #fff;
+    border: 1px solid #e9e3dc;
+    border-radius: 12px;
+    padding: 28px;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+#certifications .content-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+/* Certificate title */
+#certifications .content-card h3 {
+    font-size: 19px;
+    font-weight: 600;
+    color: #292929;
+    margin: 12px 0;
+}
+
+/* Issuer and date */
+#certifications .content-card small {
+    display: block;
+    color: #947b62;
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+/* Description */
+#certifications .content-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 14px 0;
+}
+
+/* Certificate links */
+#certifications .content-card a {
+    display: inline-block;
+    color: #94724e;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 12px 12px 0 0;
+}
+
+#certifications .content-card a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile layout */
+@media (max-width: 600px) {
+
+    #certifications {
+        padding: 60px 6%;
+    }
+
+    #certifications .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #certifications .content-card {
+        padding: 22px;
+    }
+}
 
 
 
